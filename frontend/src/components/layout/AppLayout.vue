@@ -1,8 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-dark-950">
-    <!-- Background Decoration -->
-    <div class="pointer-events-none fixed inset-0 bg-mesh-gradient"></div>
-
+  <div data-ui="brutal-app-shell" class="brutal-shell min-h-screen bg-slate-50 dark:bg-slate-950">
     <!-- Sidebar -->
     <AppSidebar />
 

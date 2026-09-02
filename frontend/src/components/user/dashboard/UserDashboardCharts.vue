@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-6">
+  <div data-ui="brutal-dashboard-charts" class="brutal-dashboard-charts space-y-6">
     <!-- Date Range Filter -->
     <div class="card p-4">
       <div class="flex flex-wrap items-center gap-4">

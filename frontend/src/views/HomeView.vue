@@ -5,7 +5,7 @@
   </div>
 
   <div v-else-if="compactHomeEnabled" data-testid="compact-home" class="flex min-h-screen flex-col bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white">
-    <header class="border-b-4 border-slate-950 px-4 py-4 dark:border-white"><nav class="mx-auto flex max-w-5xl items-center justify-between gap-4"><router-link to="/home" class="font-black">{{ siteName }}</router-link><div class="flex items-center gap-2"><LocaleSwitcher /><router-link v-if="showModelPlazaEntry" to="/model-plaza" class="border-2 border-slate-950 px-3 py-2 text-sm font-bold">模型广场</router-link><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="border-2 border-slate-950 bg-blue-600 px-3 py-2 text-sm font-bold text-white">{{ isAuthenticated ? '控制台' : '登录' }}</router-link></div></nav></header>
+    <header class="border-b-4 border-slate-950 px-4 py-4 dark:border-white"><nav class="mx-auto flex max-w-5xl items-center justify-between gap-4"><div class="font-black">{{ siteName }}</div><div class="flex items-center gap-2"><LocaleSwitcher /><router-link v-if="showModelPlazaEntry" to="/model-plaza" class="border-2 border-slate-950 px-3 py-2 text-sm font-bold">模型广场</router-link><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="border-2 border-slate-950 bg-blue-600 px-3 py-2 text-sm font-bold text-white">{{ isAuthenticated ? '控制台' : '登录' }}</router-link></div></nav></header>
     <main class="flex flex-1 items-center justify-center px-5 py-16"><div class="text-center"><h1 class="text-4xl font-black">{{ siteName }}</h1><p class="mt-4 text-slate-600 dark:text-slate-300">{{ appStore.cachedPublicSettings?.site_subtitle || 'AI API Gateway Platform' }}</p><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="mt-8 inline-flex border-2 border-slate-950 bg-blue-600 px-5 py-3 font-bold text-white">{{ isAuthenticated ? '进入控制台' : '登录' }}</router-link></div></main>
   </div>
 
@@ -89,6 +89,7 @@ const siteName = computed(() => appStore.cachedPublicSettings?.site_name || appS
 const siteLogo = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const homeContent = computed(() => appStore.cachedPublicSettings?.home_content || '')
 const hasHomeContent = computed(() => homeContent.value.trim().length > 0)
+const compactHomeEnabled = computed(() => appStore.cachedPublicSettings?.compact_home_enabled === true)
 const isHomeContentUrl = computed(() => /^https?:\/\//.test(homeContent.value.trim()))
 const docUrl = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.doc_url || appStore.docUrl || ''))
 const isDark = ref(document.documentElement.classList.contains('dark'))

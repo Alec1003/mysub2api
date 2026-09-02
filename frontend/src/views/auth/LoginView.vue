@@ -1,6 +1,6 @@
 <template>
   <AuthLayout>
-    <div class="space-y-6">
+    <div data-ui="brutal-login" class="brutal-auth-flow space-y-6">
       <!-- Title -->
       <div class="text-center">
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
