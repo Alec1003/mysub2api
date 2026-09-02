@@ -22,6 +22,15 @@ const dashboardFiles = [
   'src/components/user/dashboard/UserDashboardQuickActions.vue',
 ]
 
+const customModalFiles = [
+  'src/components/common/AnnouncementPopup.vue',
+  'src/components/common/AnnouncementBell.vue',
+  'src/views/admin/RedeemView.vue',
+  'src/views/user/PaymentView.vue',
+  'src/components/account/AccountTestModal.vue',
+  'src/components/admin/account/AccountTestModal.vue',
+]
+
 describe('MyWorkBuddy brutal visual contract', () => {
   it('marks every authentication surface as part of the brutal design system', () => {
     expect(source(authFiles[0])).toContain('data-ui="brutal-auth-shell"')
@@ -54,6 +63,15 @@ describe('MyWorkBuddy brutal visual contract', () => {
     expect(styles).toContain('--brutal-shadow:')
     expect(styles).toContain('.brutal-surface')
     expect(styles).toContain('.brutal-control')
+  })
+
+  it('marks custom Teleport dialogs so nested surfaces share the modal contract', () => {
+    const styles = source('src/style.css')
+    expect(styles).toContain('.brutal-modal-overlay')
+    expect(styles).toContain('.brutal-modal-content')
+    for (const file of customModalFiles) {
+      expect(source(file), `${file} should use the brutal modal markers`).toContain('brutal-modal-')
+    }
   })
 
   it('does not retain purple, violet, gradient or glow styling in redesigned surfaces', () => {

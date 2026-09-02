@@ -158,7 +158,7 @@
         <Transition name="fade">
           <div
             v-if="previewImageUrl"
-            class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
+            class="brutal-modal-overlay fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
             @click.self="previewImageUrl = ''"
           >
             <button

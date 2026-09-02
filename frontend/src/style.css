@@ -702,6 +702,38 @@
     border-radius: 0;
   }
 
+  /* Custom Teleport dialogs reuse the same outer marker but have their own
+     header/body markup. Strip legacy gradients and give their sections the
+     same heavy dividers as BaseDialog. */
+  .brutal-modal-content [class*='bg-gradient'] {
+    background-image: none !important;
+  }
+
+  .brutal-modal-content > .border-b,
+  .brutal-modal-content > div > .border-b {
+    border-bottom-width: 4px;
+    border-color: #0f172a;
+  }
+
+  .brutal-modal-content > .border-t,
+  .brutal-modal-content > div > .border-t {
+    border-top-width: 4px;
+    border-color: #0f172a;
+  }
+
+  .brutal-modal-content h2,
+  .brutal-modal-content h3 {
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .dark .brutal-modal-content > .border-b,
+  .dark .brutal-modal-content > div > .border-b,
+  .dark .brutal-modal-content > .border-t,
+  .dark .brutal-modal-content > div > .border-t {
+    border-color: #fff;
+  }
+
   .dark .brutal-modal-content {
     @apply border-white bg-slate-900 shadow-[8px_8px_0_0_#2563eb];
     color: #f8fafc;
