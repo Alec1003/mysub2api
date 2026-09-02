@@ -652,6 +652,158 @@
     @apply rounded-none border-2 border-slate-950 bg-white dark:border-white dark:bg-slate-950;
   }
 
+  /* BaseDialog is teleported to body, so it carries its own visual contract. */
+  .brutal-modal-overlay {
+    @apply bg-slate-950/70 backdrop-blur-sm;
+  }
+
+  .brutal-modal-content {
+    @apply rounded-none border-4 border-slate-950 bg-white shadow-[8px_8px_0_0_#2563eb];
+    color: var(--brutal-ink);
+  }
+
+  .brutal-modal-content .modal-header {
+    @apply border-b-4 border-slate-950 bg-blue-100 px-5 py-4;
+  }
+
+  .brutal-modal-content .modal-title {
+    @apply font-black uppercase tracking-tight text-slate-950;
+  }
+
+  .brutal-modal-content .modal-body {
+    @apply bg-white px-5 py-5;
+  }
+
+  .brutal-modal-content .modal-footer {
+    @apply border-t-4 border-slate-950 bg-slate-100 px-5 py-4;
+  }
+
+  .brutal-modal-content .brutal-modal-close {
+    @apply rounded-none border-2 border-slate-950 p-1.5 text-slate-950 shadow-[2px_2px_0_0_#0f172a] transition-none hover:bg-white hover:text-slate-950;
+  }
+
+  .brutal-modal-content .btn,
+  .brutal-modal-content button {
+    @apply rounded-none border-2 border-slate-950 font-bold shadow-[3px_3px_0_0_#0f172a] transition-none;
+  }
+
+  .brutal-modal-content .btn:active,
+  .brutal-modal-content button:active {
+    @apply translate-x-[2px] translate-y-[2px] shadow-none;
+  }
+
+  .brutal-modal-content .input,
+  .brutal-modal-content select,
+  .brutal-modal-content textarea {
+    @apply rounded-none border-2 border-slate-950 bg-white text-slate-950 shadow-[2px_2px_0_0_#0f172a] focus:border-blue-600 focus:ring-2 focus:ring-blue-600/30;
+  }
+
+  .brutal-modal-content [class*='rounded-'] {
+    border-radius: 0;
+  }
+
+  .dark .brutal-modal-content {
+    @apply border-white bg-slate-900 shadow-[8px_8px_0_0_#2563eb];
+    color: #f8fafc;
+  }
+
+  .dark .brutal-modal-content .modal-header {
+    @apply border-white bg-blue-950 text-white;
+  }
+
+  .dark .brutal-modal-content .modal-title,
+  .dark .brutal-modal-content .modal-body {
+    @apply text-white;
+  }
+
+  .dark .brutal-modal-content .modal-body {
+    @apply bg-slate-900;
+  }
+
+  .dark .brutal-modal-content .modal-footer {
+    @apply border-white bg-slate-950;
+  }
+
+  .dark .brutal-modal-content .brutal-modal-close,
+  .dark .brutal-modal-content .btn,
+  .dark .brutal-modal-content button {
+    @apply border-white text-white shadow-[3px_3px_0_0_#2563eb];
+  }
+
+  .dark .brutal-modal-content .input,
+  .dark .brutal-modal-content select,
+  .dark .brutal-modal-content textarea {
+    @apply border-white bg-slate-950 text-white shadow-[2px_2px_0_0_#2563eb];
+  }
+
+  /* Keep migrated app surfaces coherent when legacy utility classes remain in
+     child components. The page-level shell owns the material language. */
+  .brutal-shell [class*='rounded-'] {
+    border-radius: 0;
+  }
+
+  .brutal-shell [class*='shadow-'] {
+    box-shadow: none;
+  }
+
+  .brutal-shell .brutal-surface,
+  .brutal-shell .card {
+    box-shadow: 5px 5px 0 0 #2563eb;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .card,
+  .brutal-shell [data-ui='brutal-dashboard-stats'] .card {
+    @apply border-2 border-slate-950 bg-white dark:border-white dark:bg-slate-900;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .flex:first-child,
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .mb-3,
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .border-b,
+  .brutal-shell [data-ui='brutal-dashboard-stats'] .card > .flex:first-child {
+    border-color: #0f172a;
+  }
+
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .flex:first-child,
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .mb-3,
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] .card > .border-b,
+  .dark .brutal-shell [data-ui='brutal-dashboard-stats'] .card > .flex:first-child {
+    border-color: #fff;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] button,
+  .brutal-shell [data-ui='brutal-admin-dashboard'] a,
+  .brutal-shell [data-ui='brutal-dashboard-actions'] button {
+    border-radius: 0;
+    border: 2px solid #0f172a;
+    font-weight: 700;
+    transition: none;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] button:hover,
+  .brutal-shell [data-ui='brutal-admin-dashboard'] a:hover,
+  .brutal-shell [data-ui='brutal-dashboard-actions'] button:hover {
+    background-color: #dbeafe;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .rounded-lg,
+  .brutal-shell [data-ui='brutal-dashboard-stats'] .rounded-lg {
+    border-radius: 0;
+    border: 2px solid #0f172a;
+  }
+
+  .brutal-shell [data-ui='brutal-admin-dashboard'] .rounded-full,
+  .brutal-shell [data-ui='brutal-dashboard-stats'] .rounded-full {
+    border-radius: 0;
+  }
+
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] button,
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] a,
+  .dark .brutal-shell [data-ui='brutal-dashboard-actions'] button,
+  .dark .brutal-shell [data-ui='brutal-admin-dashboard'] .rounded-lg,
+  .dark .brutal-shell [data-ui='brutal-dashboard-stats'] .rounded-lg {
+    border-color: #fff;
+  }
+
   /* ============ 侧边栏 ============ */
   .sidebar {
     @apply fixed inset-y-0 left-0 z-40;
