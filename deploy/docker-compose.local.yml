@@ -24,7 +24,8 @@ services:
   # Sub2API Application
   # ===========================================================================
   sub2api:
-    image: weishaw/sub2api:latest
+    # Custom image built from this repository to preserve MyWorkBuddy branding.
+    image: myworkbuddy/sub2api:custom
     container_name: sub2api
     restart: unless-stopped
     security_opt:
