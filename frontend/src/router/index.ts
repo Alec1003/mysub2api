@@ -167,6 +167,16 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/doc',
+    name: 'ApiDocs',
+    component: () => import('@/views/ApiDocsView.vue'),
+    meta: {
+      requiresAuth: false,
+      title: 'API Documentation',
+      titleKey: 'apiDocs.title'
+    }
+  },
+  {
     path: '/legal/:documentId',
     name: 'LegalDocument',
     component: () => import('@/views/public/LegalDocumentView.vue'),

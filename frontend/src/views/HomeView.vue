@@ -69,7 +69,7 @@
       <section id="faq" class="border-t-4 border-slate-950 bg-blue-200 px-4 py-20 sm:px-8 sm:py-24 dark:border-white"><div class="mx-auto max-w-4xl"><span class="inline-block border-2 border-slate-950 bg-white px-3 py-1 text-xs font-black text-slate-950 shadow-[3px_3px_0_0_#0f172a]">{{ t('home.brutal.navFaq') }}</span><h2 class="mt-6 text-4xl font-black tracking-tight sm:text-5xl">{{ t('home.brutal.faqTitle') }}</h2><div class="mt-10 space-y-4"><div v-for="(item, index) in faqs" :key="item.question" class="border-4 border-slate-950 bg-white shadow-[5px_5px_0_0_#0f172a]"><button class="flex w-full items-center justify-between gap-4 p-5 text-left font-black" :aria-expanded="openFaq === index" @click="openFaq = openFaq === index ? -1 : index"><span>{{ item.question }}</span><Icon :name="openFaq === index ? 'chevronUp' : 'chevronDown'" size="sm" /></button><p v-if="openFaq === index" class="border-t-4 border-slate-950 p-5 font-semibold leading-7 text-slate-600">{{ item.answer }}</p></div></div></div></section>
     </main>
 
-      <footer class="border-t-4 border-slate-950 bg-slate-950 px-4 py-10 text-white dark:border-white sm:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><div><p class="text-xl font-black">{{ siteName.toUpperCase() }}<span class="text-blue-400">.</span></p><p class="mt-2 text-sm font-semibold text-slate-400">{{ t('home.brutal.footerTagline') }} · © {{ currentYear }}</p></div><div class="flex gap-5 text-sm font-bold text-slate-300"><a v-if="docUrl" :href="docUrl" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">{{ t('home.brutal.docs') }}</a><router-link to="/login" class="hover:text-blue-400">{{ t('home.login') }}</router-link></div></div></footer>
+      <footer class="border-t-4 border-slate-950 bg-slate-950 px-4 py-10 text-white dark:border-white sm:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"><div><p class="text-xl font-black">{{ siteName.toUpperCase() }}<span class="text-blue-400">.</span></p><p class="mt-2 text-sm font-semibold text-slate-400">{{ t('home.brutal.footerTagline') }} · © {{ currentYear }}</p></div><div class="flex gap-5 text-sm font-bold text-slate-300"><router-link to="/login" class="hover:text-blue-400">{{ t('home.login') }}</router-link></div></div></footer>
   </div>
 </template>
 
@@ -92,7 +92,6 @@ const homeContent = computed(() => appStore.cachedPublicSettings?.home_content |
 const hasHomeContent = computed(() => homeContent.value.trim().length > 0)
 const compactHomeEnabled = computed(() => appStore.cachedPublicSettings?.compact_home_enabled === true)
 const isHomeContentUrl = computed(() => /^https?:\/\//.test(homeContent.value.trim()))
-const docUrl = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.doc_url || appStore.docUrl || ''))
 const { isDark, toggleTheme } = useTheme()
 const isAuthenticated = computed(() => authStore.isAuthenticated)
 const dashboardPath = computed(() => authStore.isAdmin ? '/admin/dashboard' : '/dashboard')
