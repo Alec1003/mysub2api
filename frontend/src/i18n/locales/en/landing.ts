@@ -111,6 +111,24 @@ export default {
     },
     footer: {
       allRightsReserved: 'All rights reserved.'
+    },
+    brutal: {
+      navFeatures: 'Features', navModels: 'Models', navPricing: 'Pricing', navFaq: 'FAQ', navModelPlaza: 'Model Plaza',
+      heroTag: 'AI API / SIMPLE / DIRECT', heroLine1: 'One account', heroLine2: 'Every model', heroLine3: 'Start now',
+      heroDescription: 'Connect Claude, GPT, Gemini and other leading models through one standard API with transparent pricing and clear usage.',
+      freeRegister: 'Sign up free', viewPricing: 'View pricing', goToDashboard: 'Go to Dashboard',
+      trustNoCard: 'No credit card', trustSdk: 'Major SDK compatible', trustUsage: 'Real-time usage', builtForBuilders: 'BUILT FOR BUILDERS',
+      statUnified: 'Unified access', statStable: 'Reliable service', statNoFees: 'No hidden fees', statPossibility: 'Build freely',
+      featuresEyebrow: 'CORE FEATURES', featuresTitleLine1: 'Skip the complexity,', featuresTitleLine2: 'solve it directly.',
+      featuresDescription: 'We keep channels, routing, and billing in the background so developers get a simple, clear experience.',
+      featureUnifiedTitle: 'Unified API', featureUnifiedDesc: 'Connect multiple models with familiar OpenAI or Anthropic formats and reduce migration costs.',
+      featureRoutingTitle: 'Stable routing', featureRoutingDesc: 'Manage accounts and channels centrally in one clear console for configuration and routing.',
+      featureUsageTitle: 'Clear usage', featureUsageDesc: 'Track every request and balance change so costs and usage are always visible.',
+      modelsEyebrow: 'SUPPORTED MODELS', modelsTitleLine1: 'The models you need,', modelsTitleLine2: 'all in one place.', moreModels: 'More models', ongoing: 'Continuously adding',
+      pricingEyebrow: 'PRICING', pricingTitleLine1: 'Transparent pricing.', pricingTitleLine2: 'No fine print.',
+      pricingDescription: 'Pay for actual usage. Balance, requests, and model prices are always clear.', paygTitle: 'Pay as you go', inputOutput: 'Input / Output', realtimePricing: 'Real-time pricing', accountBalance: 'Account balance', alwaysCheck: 'Always visible', startUsing: 'Start using',
+      faqTitle: 'Frequently asked questions.', faqStart: 'How do I get started?', faqStartAnswer: 'Create an account, enter the console, add balance, and create an API Key to connect your models.', faqFormats: 'Which API formats are supported?', faqFormatsAnswer: 'OpenAI-compatible APIs and popular clients and tools such as Anthropic are supported.', faqUsage: 'How can I view usage?', faqUsageAnswer: 'Log in to the console to view balance, requests, model usage, and detailed billing.',
+      footerTagline: 'Leave complexity to the backend. Keep the experience simple for users.', docs: 'Docs'
     }
   },
 

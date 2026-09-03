@@ -1,6 +1,6 @@
 <template>
-  <header data-ui="brutal-header" class="brutal-header sticky top-0 z-30 border-b-4 border-slate-950 bg-white dark:border-white dark:bg-slate-900">
-    <div class="flex h-16 items-center justify-between gap-2 px-2 sm:px-4 md:px-6">
+  <header data-ui="brutal-header" class="brutal-header sticky top-0 z-30 h-16 border-b-4 border-slate-950 bg-white dark:border-white dark:bg-slate-900">
+    <div class="flex h-full items-center justify-between gap-2 px-2 sm:px-4 md:px-6">
       <!-- Left: Mobile Menu Toggle + Page Title -->
       <div class="flex shrink-0 items-center gap-2 sm:gap-4">
         <button

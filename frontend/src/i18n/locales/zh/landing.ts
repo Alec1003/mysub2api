@@ -111,6 +111,24 @@ export default {
     },
     footer: {
       allRightsReserved: '保留所有权利。'
+    },
+    brutal: {
+      navFeatures: '功能', navModels: '模型', navPricing: '价格', navFaq: 'FAQ', navModelPlaza: '模型广场',
+      heroTag: 'AI API / SIMPLE / DIRECT', heroLine1: '一个账户', heroLine2: '所有模型', heroLine3: '立即开始',
+      heroDescription: '统一接入 Claude、GPT、Gemini 等主流模型。标准 API、透明价格、清晰用量，让 AI 接入不再复杂。',
+      freeRegister: '免费注册', viewPricing: '查看价格', goToDashboard: '进入控制台',
+      trustNoCard: '无需信用卡', trustSdk: '兼容主流 SDK', trustUsage: '实时用量', builtForBuilders: 'BUILT FOR BUILDERS',
+      statUnified: '统一入口', statStable: '稳定服务', statNoFees: '隐藏费用', statPossibility: '开发可能',
+      featuresEyebrow: 'CORE FEATURES', featuresTitleLine1: '不绕弯，', featuresTitleLine2: '直接解决问题。',
+      featuresDescription: '我们把复杂的渠道、调度和计费留在后台，把简单清晰的使用体验交给开发者。',
+      featureUnifiedTitle: '统一 API', featureUnifiedDesc: '用熟悉的 OpenAI 或 Anthropic 格式接入多个模型，降低迁移成本。',
+      featureRoutingTitle: '稳定路由', featureRoutingDesc: '集中管理账号与渠道，在一个清晰的控制台中完成配置和调度。',
+      featureUsageTitle: '清晰用量', featureUsageDesc: '每次请求和余额变化都可追踪，让成本和使用情况一目了然。',
+      modelsEyebrow: 'SUPPORTED MODELS', modelsTitleLine1: '你需要的模型，', modelsTitleLine2: '都在这里。', moreModels: '更多模型', ongoing: '持续接入中',
+      pricingEyebrow: 'PRICING', pricingTitleLine1: '价格透明。', pricingTitleLine2: '没有小字。',
+      pricingDescription: '按实际使用量计费，余额、请求和模型价格都清楚可查。', paygTitle: '按量使用', inputOutput: '输入 / 输出', realtimePricing: '实时计价', accountBalance: '账户余额', alwaysCheck: '随时可查', startUsing: '开始使用',
+      faqTitle: '常见问题。', faqStart: '如何开始使用？', faqStartAnswer: '注册账户后进入控制台，添加余额并创建 API Key，即可按照文档接入模型。', faqFormats: '支持哪些接口格式？', faqFormatsAnswer: '支持 OpenAI 兼容接口，也支持 Anthropic 等主流客户端和开发工具。', faqUsage: '如何查看消费情况？', faqUsageAnswer: '登录控制台即可查看余额、请求记录、模型用量和详细账单。',
+      footerTagline: '把复杂留给后台，把简单交给用户。', docs: '文档'
     }
   },
 
