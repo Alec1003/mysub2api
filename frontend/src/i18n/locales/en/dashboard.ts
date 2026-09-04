@@ -68,6 +68,7 @@ export default {
   keys: {
     title: 'API Keys',
     description: 'Manage your API keys and access tokens',
+    apiBaseUrl: 'API Base URL',
     searchPlaceholder: 'Search name or key...',
     endpoints: {
       title: 'API Endpoints',

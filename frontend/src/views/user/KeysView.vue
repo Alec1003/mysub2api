@@ -3,6 +3,28 @@
     <TablePageLayout>
       <template #filters>
         <div class="flex flex-col gap-3">
+          <div
+            class="flex flex-wrap items-center gap-3 rounded-lg border border-gray-200 bg-white px-3 py-2.5 dark:border-dark-600 dark:bg-dark-800"
+          >
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+              {{ t('keys.apiBaseUrl') }}
+            </span>
+            <code class="min-w-0 flex-1 break-all font-mono text-sm text-gray-500 dark:text-gray-400">
+              {{ workBuddyBaseUrl }}
+            </code>
+            <button
+              type="button"
+              class="inline-flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1.5 text-xs font-medium transition-colors"
+              :class="copiedBaseUrl
+                ? 'text-emerald-600 dark:text-emerald-400'
+                : 'text-gray-500 hover:bg-gray-100 hover:text-primary-600 dark:text-gray-400 dark:hover:bg-dark-700 dark:hover:text-primary-400'"
+              :title="copiedBaseUrl ? t('keys.endpoints.copiedHint') : t('keys.endpoints.clickToCopy')"
+              @click="copyBaseUrl"
+            >
+              <Icon :name="copiedBaseUrl ? 'check' : 'clipboard'" size="sm" :stroke-width="2" />
+              <span>{{ copiedBaseUrl ? t('keys.endpoints.copied') : t('keys.copyToClipboard') }}</span>
+            </button>
+          </div>
           <div class="flex flex-wrap items-center gap-3">
             <SearchInput
               v-model="filterSearch"
@@ -1174,6 +1196,21 @@ interface GroupOption {
 const appStore = useAppStore()
 const onboardingStore = useOnboardingStore()
 const { copyToClipboard: clipboardCopy } = useClipboard()
+const workBuddyBaseUrl = 'https://myworkbuddy.vip/v1'
+const copiedBaseUrl = ref(false)
+let copiedBaseUrlResetTimer: number | undefined
+
+const copyBaseUrl = async () => {
+  const success = await clipboardCopy(workBuddyBaseUrl, t('keys.endpoints.copied'))
+  if (!success) return
+  copiedBaseUrl.value = true
+  if (copiedBaseUrlResetTimer !== undefined) {
+    window.clearTimeout(copiedBaseUrlResetTimer)
+  }
+  copiedBaseUrlResetTimer = window.setTimeout(() => {
+    copiedBaseUrl.value = false
+  }, 1800)
+}
 
 const allColumns = computed<Column[]>(() => [
   { key: 'name', label: t('common.name'), sortable: true },
@@ -1966,5 +2003,6 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener('click', closeGroupSelector)
   if (resetTimer) clearInterval(resetTimer)
+  if (copiedBaseUrlResetTimer !== undefined) window.clearTimeout(copiedBaseUrlResetTimer)
 })
 </script>

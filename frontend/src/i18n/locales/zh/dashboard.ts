@@ -68,6 +68,7 @@ export default {
   keys: {
     title: 'API 密钥',
     description: '管理您的 API 密钥和访问令牌',
+    apiBaseUrl: 'API Base URL',
     searchPlaceholder: '搜索名称或Key...',
     endpoints: {
       title: 'API 端点',
