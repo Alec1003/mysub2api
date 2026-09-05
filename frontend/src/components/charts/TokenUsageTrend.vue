@@ -35,6 +35,7 @@ import {
 import { Line } from 'vue-chartjs'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 import type { TrendDataPoint } from '@/types'
+import { formatPoints } from '@/utils/format'
 
 ChartJS.register(
   CategoryScale,
@@ -52,6 +53,7 @@ const { t } = useI18n()
 const props = defineProps<{
   trendData: TrendDataPoint[]
   loading?: boolean
+  showPoints?: boolean
 }>()
 
 const isDarkMode = computed(() => {
@@ -155,7 +157,9 @@ const lineOptions = computed(() => ({
           const dataIndex = tooltipItems[0]?.dataIndex
           if (dataIndex !== undefined && props.trendData[dataIndex]) {
             const data = props.trendData[dataIndex]
-            return `Actual: $${formatCost(data.actual_cost)} | Standard: $${formatCost(data.cost)}`
+            return props.showPoints
+              ? `Actual: ${formatPoints(data.actual_cost)} ${t('common.points')} | Standard: ${formatPoints(data.cost)} ${t('common.points')}`
+              : `Actual: $${formatCost(data.actual_cost)} | Standard: $${formatCost(data.cost)}`
           }
           return ''
         }

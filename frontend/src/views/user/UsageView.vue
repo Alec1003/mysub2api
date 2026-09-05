@@ -32,6 +32,7 @@
             :show-metric-toggle="true"
             :enable-breakdown="false"
             :show-account-cost="false"
+            :show-points="true"
             :start-date="startDate"
             :end-date="endDate"
           />
@@ -42,6 +43,7 @@
             :show-metric-toggle="true"
             :enable-breakdown="false"
             :show-account-cost="false"
+            :show-points="true"
             :start-date="startDate"
             :end-date="endDate"
           />
@@ -59,10 +61,11 @@
             :show-metric-toggle="true"
             :enable-breakdown="false"
             :title="t('usage.endpointDistribution')"
+            :show-points="true"
             :start-date="startDate"
             :end-date="endDate"
           />
-          <TokenUsageTrend :trend-data="trendData" :loading="chartsLoading" />
+          <TokenUsageTrend :trend-data="trendData" :loading="chartsLoading" :show-points="true" />
         </div>
       </div>
 
