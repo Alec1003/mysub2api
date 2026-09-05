@@ -428,19 +428,19 @@
             <template v-if="tooltipData && !isImageUsage(tooltipData) && (!tooltipData.billing_mode || tooltipData.billing_mode === BILLING_MODE_TOKEN)">
               <div v-if="tooltipData && textInputTokens(tooltipData) > 0" class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('usage.inputTokenPrice') }}</span>
-                <span class="font-medium text-sky-300">{{ formatTokenPricePerMillion(tooltipData.input_cost, textInputTokens(tooltipData)) }} {{ t('usage.perMillionTokens') }}</span>
+                <span class="font-medium text-sky-300">{{ displayTokenPrice(tooltipData.input_cost, textInputTokens(tooltipData)) }} {{ t('usage.perMillionTokens') }}</span>
               </div>
               <div v-if="tooltipData && hasImageInputTokens(tooltipData)" class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('usage.imageInputTokenPrice') }}</span>
-                <span class="font-medium text-fuchsia-300">{{ formatTokenPricePerMillion(tooltipData.image_input_cost ?? 0, tooltipData.image_input_tokens) }} {{ t('usage.perMillionTokens') }}</span>
+                <span class="font-medium text-fuchsia-300">{{ displayTokenPrice(tooltipData.image_input_cost ?? 0, tooltipData.image_input_tokens) }} {{ t('usage.perMillionTokens') }}</span>
               </div>
               <div v-if="tooltipData && tooltipData.output_cost > 0 && textOutputTokens(tooltipData) > 0" class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('usage.outputTokenPrice') }}</span>
-                <span class="font-medium text-violet-300">{{ formatTokenPricePerMillion(tooltipData.output_cost, textOutputTokens(tooltipData)) }} {{ t('usage.perMillionTokens') }}</span>
+                <span class="font-medium text-violet-300">{{ displayTokenPrice(tooltipData.output_cost, textOutputTokens(tooltipData)) }} {{ t('usage.perMillionTokens') }}</span>
               </div>
               <div v-if="tooltipData && hasImageOutputTokens(tooltipData)" class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('usage.imageOutputTokenPrice') }}</span>
-                <span class="font-medium text-pink-300">{{ formatTokenPricePerMillion(tooltipData.image_output_cost ?? 0, tooltipData.image_output_tokens) }} {{ t('usage.perMillionTokens') }}</span>
+                <span class="font-medium text-pink-300">{{ displayTokenPrice(tooltipData.image_output_cost ?? 0, tooltipData.image_output_tokens) }} {{ t('usage.perMillionTokens') }}</span>
               </div>
             </template>
             <template v-else-if="tooltipData && isImageUsage(tooltipData)">
@@ -537,7 +537,7 @@ import { useI18n } from 'vue-i18n'
 import { useAppStore } from '@/stores/app'
 import { formatDateTime, formatReasoningEffort, reasoningEffortValuesEqual, formatPoints } from '@/utils/format'
 import { formatCacheTokens, formatMultiplier } from '@/utils/formatters'
-import { formatTokenPricePerMillion } from '@/utils/usagePricing'
+import { calculateTokenPricePerMillion, formatTokenPricePerMillion } from '@/utils/usagePricing'
 import { getUsageServiceTierLabel } from '@/utils/usageServiceTier'
 import { resolveUsageRequestType } from '@/utils/usageRequestType'
 import {
@@ -625,6 +625,12 @@ const showPoints = props.showPoints
 const displayCost = (amount: number | null | undefined): string => {
   if (showPoints) return `${formatPoints(amount)} ${t('common.points')}`
   return `$${(amount ?? 0).toFixed(6)}`
+}
+
+const displayTokenPrice = (cost: number | null | undefined, tokens: number | null | undefined): string => {
+  if (!showPoints) return formatTokenPricePerMillion(cost, tokens)
+  const price = calculateTokenPricePerMillion(cost, tokens)
+  return price == null ? '-' : `${formatPoints(price)} ${t('common.points')}`
 }
 const ipGeoBatchLoading = ref(false)
 
