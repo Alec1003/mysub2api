@@ -55,6 +55,7 @@ export default {
 	    frozenBalance: '冻结金额',
 	    totalBalance: '总余额',
 	    available: '可用',
+    points: '积分',
     copiedToClipboard: '已复制到剪贴板',
     copied: '已复制',
     copyFailed: '复制失败',

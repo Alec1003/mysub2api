@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatCompactNumber } from '../format'
+import { formatCompactNumber, usdToPoints } from '../format'
 
 describe('formatCompactNumber', () => {
   it('formats boundary values with K/M/B', () => {
@@ -18,5 +18,13 @@ describe('formatCompactNumber', () => {
   it('returns 0 for nullish input', () => {
     expect(formatCompactNumber(null)).toBe('0')
     expect(formatCompactNumber(undefined)).toBe('0')
+  })
+})
+
+describe('usdToPoints', () => {
+  it('uses the fixed 1000:1 display conversion', () => {
+    expect(usdToPoints(1)).toBe(1000)
+    expect(usdToPoints(0.001)).toBe(1)
+    expect(usdToPoints(null)).toBe(0)
   })
 })

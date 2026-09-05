@@ -353,6 +353,22 @@ export function formatCostFixed(amount: number, fractionDigits: number = 4): str
   return amount.toFixed(fractionDigits)
 }
 
+/** User-facing billing unit: one USD equals 1000 points. */
+export const POINTS_PER_USD = 1000
+
+export function usdToPoints(amount: number | null | undefined): number {
+  if (amount == null || !Number.isFinite(amount)) return 0
+  return amount * POINTS_PER_USD
+}
+
+export function formatPoints(amount: number | null | undefined, fractionDigits = 3): string {
+  const points = usdToPoints(amount)
+  return new Intl.NumberFormat(getLocale(), {
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  }).format(points)
+}
+
 /**
  * 格式化 token 数量（>=1M 显示为 M，>=1K 显示为 K，保留 1 位小数）
  * @param tokens token 数量

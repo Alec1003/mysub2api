@@ -423,7 +423,7 @@ import { useAppStore } from '@/stores'
 import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue'
 import Icon from '@/components/icons/Icon.vue'
 import { buildGatewayUrl } from '@/api/client'
-import { formatDateLocalInput } from '@/utils/format'
+import { formatDateLocalInput, formatPoints } from '@/utils/format'
 import { sanitizeUrl } from '@/utils/url'
 import { useTheme } from '@/composables/useTheme'
 
@@ -826,7 +826,7 @@ const showDailyUsage = computed(() => Boolean(resultData.value && Array.isArray(
 
 function usd(value: number | null | undefined): string {
   if (value == null || value < 0) return '-'
-  return '$' + Number(value).toFixed(2)
+  return `${formatPoints(value)} ${t('common.points')}`
 }
 
 function fmtNum(val: number | null | undefined): string {

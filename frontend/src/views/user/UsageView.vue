@@ -1,7 +1,7 @@
 <template>
   <AppLayout>
     <div class="space-y-6">
-      <UsageStatsCards :stats="usageStats" :show-account-cost="false" :strike-standard-cost="true" />
+      <UsageStatsCards :stats="usageStats" :show-account-cost="false" :strike-standard-cost="true" :show-points="true" />
 
       <div class="space-y-4">
         <div class="card p-4">
@@ -183,6 +183,7 @@
           :columns="visibleColumns"
           :server-side-sort="true"
           :show-account-billing="false"
+          :show-points="true"
           :show-upstream-endpoint="false"
           default-sort-key="created_at"
           default-sort-order="desc"

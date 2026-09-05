@@ -55,6 +55,7 @@ export default {
 	    frozenBalance: 'Frozen balance',
 	    totalBalance: 'Total balance',
 	    available: 'Available',
+    points: 'points',
     copiedToClipboard: 'Copied to clipboard',
     copied: 'Copied',
     copyFailed: 'Failed to copy',
