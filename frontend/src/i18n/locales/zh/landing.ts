@@ -114,6 +114,7 @@ export default {
     },
     brutal: {
       navFeatures: '功能', navModels: '模型', navPricing: '价格', navFaq: 'FAQ', navModelPlaza: '模型广场',
+      rechargeBanner: '充值比例：1 元 = 1,000 积分｜充值后即时到账',
       heroTag: 'AI API / SIMPLE / DIRECT', heroLine1: '一个账户', heroLine2: '所有模型', heroLine3: '立即开始',
       heroDescription: '统一接入 Claude、GPT、Gemini 等主流模型。标准 API、透明价格、清晰用量，让 AI 接入不再复杂。',
       freeRegister: '免费注册', viewPricing: '查看价格', goToDashboard: '进入控制台',

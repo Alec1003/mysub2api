@@ -1,11 +1,13 @@
 <template>
   <div v-if="hasHomeContent" class="min-h-screen">
+    <RechargeRateBanner />
     <iframe v-if="isHomeContentUrl" :src="homeContent.trim()" class="h-screen w-full border-0" allowfullscreen />
     <div v-else v-html="homeContent"></div>
   </div>
 
   <div v-else-if="compactHomeEnabled" data-testid="compact-home" class="flex min-h-screen flex-col bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white">
     <header class="border-b-4 border-slate-950 px-4 py-4 dark:border-white"><nav class="mx-auto flex max-w-5xl items-center justify-between gap-4"><div class="font-black">{{ siteName }}</div><div class="flex items-center gap-2"><LocaleSwitcher /><router-link v-if="showModelPlazaEntry" to="/model-plaza" class="border-2 border-slate-950 px-3 py-2 text-sm font-bold">{{ t('home.brutal.navModelPlaza') }}</router-link><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="border-2 border-slate-950 bg-blue-600 px-3 py-2 text-sm font-bold text-white">{{ isAuthenticated ? t('home.brutal.goToDashboard') : t('home.login') }}</router-link></div></nav></header>
+    <RechargeRateBanner />
     <main class="flex flex-1 items-center justify-center px-5 py-16"><div class="text-center"><h1 class="text-4xl font-black">{{ siteName }}</h1><p class="mt-4 text-slate-600 dark:text-slate-300">{{ appStore.cachedPublicSettings?.site_subtitle || 'AI API Gateway Platform' }}</p><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="mt-8 inline-flex border-2 border-slate-950 bg-blue-600 px-5 py-3 font-bold text-white">{{ isAuthenticated ? t('home.goToDashboard') : t('home.login') }}</router-link></div></main>
   </div>
 
@@ -34,6 +36,7 @@
         </div>
       </nav>
     </header>
+    <RechargeRateBanner />
 
     <main>
       <div class="terminal-container hidden" aria-hidden="true"></div>
@@ -79,6 +82,7 @@ import { useI18n } from 'vue-i18n'
 import { useAuthStore, useAppStore } from '@/stores'
 import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue'
 import Icon from '@/components/icons/Icon.vue'
+import RechargeRateBanner from '@/components/common/RechargeRateBanner.vue'
 import { sanitizeUrl } from '@/utils/url'
 import { FeatureFlags, isFeatureFlagEnabled } from '@/utils/featureFlags'
 import { useTheme } from '@/composables/useTheme'

@@ -114,6 +114,7 @@ export default {
     },
     brutal: {
       navFeatures: 'Features', navModels: 'Models', navPricing: 'Pricing', navFaq: 'FAQ', navModelPlaza: 'Model Plaza',
+      rechargeBanner: 'Recharge rate: ¥1 = 1,000 points | credited instantly',
       heroTag: 'AI API / SIMPLE / DIRECT', heroLine1: 'One account', heroLine2: 'Every model', heroLine3: 'Start now',
       heroDescription: 'Connect Claude, GPT, Gemini and other leading models through one standard API with transparent pricing and clear usage.',
       freeRegister: 'Sign up free', viewPricing: 'View pricing', goToDashboard: 'Go to Dashboard',
