@@ -175,6 +175,8 @@ export default {
     channels: 'Channels',
     availableChannels: 'Available Channels',
     modelPlaza: 'Model Plaza',
+    skills: 'Skill Center',
+    skillManagement: 'Skill Management',
     subscriptions: 'Subscriptions',
     accounts: 'Accounts',
     plugins: 'Plugins',
@@ -207,6 +209,28 @@ export default {
     contentModeration: 'Content Moderation',
     promptAudit: 'Prompt Audit',
     auditLogs: 'Audit Logs',
+  },
+
+  skills: {
+    title: 'Skill Center',
+    adminTitle: 'Skill Management',
+    rule: 'Every 30,000 successfully recharged points unlocks one Skill redemption. Access is permanent after redemption.',
+    adminHint: 'Manage Skill names, summaries, effects, and cloud-drive material links.',
+    total: 'Recharge points',
+    available: 'Available redemptions',
+    redeemed: 'Redeemed',
+    notRedeemed: 'Not redeemed',
+    statusActive: 'Online',
+    statusOffline: 'Offline',
+    effects: 'Effect image',
+    clickToPreview: 'Click to preview',
+    imageTooLarge: 'The effect image must be smaller than 6 MB',
+    name: 'Skill name',
+    description: 'Short introduction',
+    redeem: 'Redeem Skill',
+    openMaterial: 'Open materials',
+    redeemSuccess: 'Redeemed successfully. Materials are unlocked.',
+    insufficient: 'No redemption available'
   },
 
   // Auth

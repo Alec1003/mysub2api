@@ -49,6 +49,14 @@ func RegisterAdminRoutes(
 		// 公告管理
 		registerAnnouncementRoutes(admin, h)
 
+		skills := admin.Group("/skills")
+		{
+			skills.GET("", h.Admin.Skill.List)
+			skills.POST("", h.Admin.Skill.Create)
+			skills.PUT("/:id", h.Admin.Skill.Update)
+			skills.DELETE("/:id", h.Admin.Skill.Delete)
+		}
+
 		// OpenAI OAuth
 		registerOpenAIOAuthRoutes(admin, h)
 

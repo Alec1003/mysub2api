@@ -263,6 +263,12 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/skills',
+    name: 'Skills',
+    component: () => import('@/views/user/SkillsView.vue'),
+    meta: { requiresAuth: true, requiresAdmin: false, title: 'Skill Center', titleKey: 'skills.title' }
+  },
+  {
     path: '/affiliate',
     name: 'Affiliate',
     component: () => import('@/views/user/AffiliateView.vue'),
@@ -557,6 +563,12 @@ const routes: RouteRecordRaw[] = [
       titleKey: 'admin.announcements.title',
       descriptionKey: 'admin.announcements.description'
     }
+  },
+  {
+    path: '/admin/skills',
+    name: 'AdminSkills',
+    component: () => import('@/views/admin/SkillsView.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true, title: 'Skill Management', titleKey: 'skills.adminTitle' }
   },
   {
     path: '/admin/proxies',

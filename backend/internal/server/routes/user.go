@@ -126,6 +126,12 @@ func RegisterUserRoutes(
 			redeem.GET("/history", h.Redeem.GetHistory)
 		}
 
+		skills := authenticated.Group("/skills")
+		{
+			skills.GET("", h.Skill.List)
+			skills.POST("/:id/redeem", h.Skill.Redeem)
+		}
+
 		// 用户订阅
 		subscriptions := authenticated.Group("/subscriptions")
 		{

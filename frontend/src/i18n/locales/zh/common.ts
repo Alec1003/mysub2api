@@ -175,6 +175,8 @@ export default {
     channels: '渠道管理',
     availableChannels: '可用渠道',
     modelPlaza: '模型广场',
+    skills: 'Skill 中心',
+    skillManagement: 'Skill 管理',
     subscriptions: '订阅管理',
     accounts: '账号管理',
     plugins: '插件管理',
@@ -207,6 +209,28 @@ export default {
     contentModeration: '内容审核',
     promptAudit: '提示词审计',
     auditLogs: '操作日志',
+  },
+
+  skills: {
+    title: 'Skill 中心',
+    adminTitle: 'Skill 管理',
+    rule: '累计成功充值每 30,000 积分可兑换 1 个 Skill，兑换后永久访问。',
+    adminHint: '管理 Skill 名称、简介、实现效果和网盘资料链接。',
+    total: '累计充值积分',
+    available: '可用兑换次数',
+    redeemed: '已兑换',
+    notRedeemed: '未兑换',
+    statusActive: '已上架',
+    statusOffline: '已下架',
+    effects: '效果图',
+    clickToPreview: '点击查看大图',
+    imageTooLarge: '效果图不能超过 6 MB',
+    name: 'Skill 名称',
+    description: '简短介绍',
+    redeem: '立即兑换',
+    openMaterial: '打开资料',
+    redeemSuccess: '兑换成功，资料已解锁。',
+    insufficient: '兑换次数不足'
   },
 
   // Auth
