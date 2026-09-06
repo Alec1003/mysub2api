@@ -6,12 +6,13 @@
   </div>
 
   <div v-else-if="compactHomeEnabled" data-testid="compact-home" class="flex min-h-screen flex-col bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white">
-    <header class="border-b-4 border-slate-950 px-4 py-4 dark:border-white"><nav class="mx-auto flex max-w-5xl items-center justify-between gap-4"><div class="font-black">{{ siteName }}</div><div class="flex items-center gap-2"><LocaleSwitcher /><router-link v-if="showModelPlazaEntry" to="/model-plaza" class="border-2 border-slate-950 px-3 py-2 text-sm font-bold">{{ t('home.brutal.navModelPlaza') }}</router-link><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="border-2 border-slate-950 bg-blue-600 px-3 py-2 text-sm font-bold text-white">{{ isAuthenticated ? t('home.brutal.goToDashboard') : t('home.login') }}</router-link></div></nav></header>
     <RechargeRateBanner />
+    <header class="border-b-4 border-slate-950 px-4 py-4 dark:border-white"><nav class="mx-auto flex max-w-5xl items-center justify-between gap-4"><div class="font-black">{{ siteName }}</div><div class="flex items-center gap-2"><LocaleSwitcher /><router-link v-if="showModelPlazaEntry" to="/model-plaza" class="border-2 border-slate-950 px-3 py-2 text-sm font-bold">{{ t('home.brutal.navModelPlaza') }}</router-link><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="border-2 border-slate-950 bg-blue-600 px-3 py-2 text-sm font-bold text-white">{{ isAuthenticated ? t('home.brutal.goToDashboard') : t('home.login') }}</router-link></div></nav></header>
     <main class="flex flex-1 items-center justify-center px-5 py-16"><div class="text-center"><h1 class="text-4xl font-black">{{ siteName }}</h1><p class="mt-4 text-slate-600 dark:text-slate-300">{{ appStore.cachedPublicSettings?.site_subtitle || 'AI API Gateway Platform' }}</p><router-link :to="isAuthenticated ? dashboardPath : '/login'" class="mt-8 inline-flex border-2 border-slate-950 bg-blue-600 px-5 py-3 font-bold text-white">{{ isAuthenticated ? t('home.goToDashboard') : t('home.login') }}</router-link></div></main>
   </div>
 
   <div v-else class="min-h-screen bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <RechargeRateBanner />
     <header class="sticky top-0 z-30 border-b-4 border-slate-950 bg-blue-600 dark:border-white">
       <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-8">
         <router-link to="/home" class="flex items-center gap-3" aria-label="MyWorkBuddy home">
@@ -36,7 +37,6 @@
         </div>
       </nav>
     </header>
-    <RechargeRateBanner />
 
     <main>
       <div class="terminal-container hidden" aria-hidden="true"></div>
