@@ -291,9 +291,6 @@ function billingModeLabel(m: PlazaModel): string {
     : t('modelPlaza.table.perRequest')
 }
 
-/** 价格统一保底 2 位小数,更长的有效小数原样保留。 */
-const MIN_DECIMALS = 2
-
 /** 表格行:每个模型一行标准价;配置了分时倍率的模型再按时段各加一行。 */
 interface PlazaRow {
   model: PlazaModel
